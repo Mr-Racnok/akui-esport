@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 45 90% 55%;
+    --primary-foreground: 45 90% 95%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 45 90% 65%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 45 90% 55%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222 84% 4.9%; /* Dark Gold */
+    --foreground: 210 40% 98%; /* Dark Gold */
+    --card: 222 84% 4.9%; /* Dark Gold */
+    --card-foreground: 210 40% 98%; /* Dark Gold */
+    --popover: 222 84% 4.9%; /* Dark Gold */
+    --popover-foreground: 210 40% 98%; /* Dark Gold */
+    --primary: 45 80% 50%; /* Dark Gold */
+    --primary-foreground: 240 5.9% 10%; /* Dark Gold */
+    --secondary: 217.2 32.6% 17.5%; /* Dark Gold */
+    --secondary-foreground: 210 40% 98%; /* Dark Gold */
+    --muted: 217.2 32.6% 17.5%; /* Dark Gold */
+    --muted-foreground: 215 20.2% 65.1%; /* Dark Gold */
+    --accent: 45 80% 55%; /* Dark Gold */
+    --accent-foreground: 240 5.9% 10%; /* Dark Gold */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217.2 32.6% 17.5%; /* Dark Gold */
+    --input: 217.2 32.6% 17.5%; /* Dark Gold */
+    --ring: 45 80% 50%; /* Dark Gold */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  @keyframes flicker-white {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 2px #ffffff70, 0 0 5px #ffffff70, 0 0 10px #ffffff70;
+      opacity: 1;
+    }
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+      opacity: 0.5;
+    }
+  }
+
+  .animate-flicker-white {
+    animation: flicker-white 4s linear infinite;
+  }
+
+  @keyframes flicker-red {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 2px #ff000049, /* red-500 */ 0 0 5px #ff000049, 0 0 10px #ff000049;
+      opacity: 1;
+    }
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+      opacity: 0.5;
+    }
+  }
+
+  .animate-flicker-red {
+    animation: flicker-red 3s linear infinite;
+  }
+
+  .animate-border-chase {
+    background-image: conic-gradient(
+      from var(--gradient-angle, 0deg),
+      hsl(var(--secondary)),
+      hsl(var(--primary)),
+      hsl(var(--secondary))
+    );
+    animation: border-chase 4s linear infinite;
+  }
+
+  .animate-neon-glow {
+    animation: neon-glow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes burning-effect {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 3px #f59e0b) drop-shadow(0 0 8px #ef4444);
+      opacity: 1;
+    }
+    50% {
+      filter: drop-shadow(0 0 6px #f59e0b) drop-shadow(0 0 15px #ef4444);
+      opacity: 0.9;
+    }
+  }
+
+  .animate-burning {
+    animation: burning-effect 1.5s ease-in-out infinite;
+  }
+}
